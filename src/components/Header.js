@@ -4,16 +4,27 @@ import logo from '../logo.png';
 class Header extends Component {
   render() {
     return (
-      <nav className='d-flex align-item-center justify-content-center navbar navbar-light bg-light'>
-        <img
-          src={logo}
-          width='50'
-          height='50'
-          className='d-inline-block align-top'
-          alt=''
-        />
-        <h1 className='display-4'>CV Builder</h1>
-      </nav>
+      <header>
+        <nav className='navbar bg-dark navbar-dark'>
+          <div className='container-fluid'>
+            <div className='navbar-brand ' href='#'>
+              <img
+                src={logo}
+                alt=''
+                width='90'
+                height='72'
+                className='d-inline-block'
+              ></img>
+              <h1 className='display-5 d-inline-block px-3 align-bottom'>
+                CV Builder
+              </h1>
+              <h6 className='text-muted d-inline-block align-bottom'>
+                by Peyton Bechard
+              </h6>
+            </div>
+          </div>
+        </nav>
+      </header>
     );
   }
 }
