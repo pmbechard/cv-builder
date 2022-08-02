@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <nav className='navbar bg-dark navbar-dark'>
+        <nav className='navbar'>
           <div className='container-fluid'>
             <div className='navbar-brand ' href='#'>
               <img

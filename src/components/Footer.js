@@ -3,7 +3,7 @@ import { Component } from 'react';
 class Footer extends Component {
   render() {
     return (
-      <footer className='footer mt-auto py-3 bg-dark navbar-dark'>
+      <footer className='footer mt-auto py-3'>
         <div className='container'>
           <span className='text-muted'>
             <a
@@ -14,7 +14,7 @@ class Footer extends Component {
                 xmlns='http://www.w3.org/2000/svg'
                 width='16'
                 height='16'
-                fill='currentColor'
+                fill='black'
                 className='bi bi-github'
                 viewBox='0 0 16 16'
               >
