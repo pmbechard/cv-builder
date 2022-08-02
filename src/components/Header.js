@@ -18,9 +18,6 @@ class Header extends Component {
               <h1 className='display-5 d-inline-block px-3 align-bottom'>
                 CV Builder
               </h1>
-              <h6 className='text-muted d-inline-block align-bottom'>
-                by Peyton Bechard
-              </h6>
             </div>
           </div>
         </nav>
