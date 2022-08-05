@@ -6,6 +6,7 @@ import EducationArea from './EducationArea';
 import OtherArea from './OtherArea';
 import AddFormBtn from './AddFormBtn';
 import RemoveFormBtn from './RemoveFormBtn';
+import { Button } from 'react-bootstrap';
 
 class Main extends Component {
   constructor(props) {
@@ -55,6 +56,10 @@ class Main extends Component {
     this.setState({
       otherCounter: this.state.otherCounter - 1,
     });
+  };
+
+  exportDocument = (e) => {
+    // Save pdf document
   };
 
   render() {
@@ -120,6 +125,21 @@ class Main extends Component {
                   this.removeOtherForm(e);
                 }}
               />
+            </div>
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item>
+          <Accordion.Header>Save</Accordion.Header>
+          <Accordion.Body>
+            <div className='d-flex justify-content-evenly'>
+              <Button
+                className='btn-success'
+                onClick={(e) => {
+                  this.exportDocument(e);
+                }}
+              >
+                Download PDF
+              </Button>
             </div>
           </Accordion.Body>
         </Accordion.Item>
