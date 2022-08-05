@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
 
 export class WorkExperienceForm extends Component {
-  constructor(props) {
-    super(props);
-    this.counter = props.counter;
-  }
   render() {
     return (
       <div className='my-3 border p-3'>
-        <h5>Company {this.counter + 1} </h5>
+        <h5>Company {this.props.counter + 1} </h5>
         <form action='' method='' className='form' noValidate>
           <div className='row gx-2'>
             <div className='my-2 form-floating col-md'>
               <input
                 type='text'
-                id={`position-company-${this.counter}`}
+                id={`position-company-${this.props.counter + 1}`}
                 className='form-control'
                 placeholder='Position'
                 required
               />
               <label
-                htmlFor={`position-company-${this.counter}`}
+                htmlFor={`position-company-${this.props.counter + 1}`}
                 className='form-label'
               >
                 Position
@@ -29,25 +25,28 @@ export class WorkExperienceForm extends Component {
             <div className='my-2 form-floating col-md'>
               <input
                 type='text'
-                id={`company-${this.counter}`}
+                id={`company-${this.props.counter + 1}`}
                 className='form-control'
                 placeholder='Company'
                 required
               />
-              <label htmlFor={`company-${this.counter}`} className='form-label'>
+              <label
+                htmlFor={`company-${this.props.counter + 1}`}
+                className='form-label'
+              >
                 Company
               </label>
             </div>
             <div className='my-2 form-floating col'>
               <input
                 type='location'
-                id={`company-location-${this.counter}`}
+                id={`company-location-${this.props.counter + 1}`}
                 className='form-control'
                 placeholder='Location'
                 required
               />
               <label
-                htmlFor={`company-location-${this.counter}`}
+                htmlFor={`company-location-${this.props.counter + 1}`}
                 className='form-label'
               >
                 Location
@@ -58,13 +57,13 @@ export class WorkExperienceForm extends Component {
             <div className='my-2 form-floating col-md'>
               <input
                 type='date'
-                id={`company-from-${this.counter}`}
+                id={`company-from-${this.props.counter + 1}`}
                 className='form-control'
                 placeholder='From'
                 required
               />
               <label
-                htmlFor={`company-from-${this.counter}`}
+                htmlFor={`company-from-${this.props.counter + 1}`}
                 className='form-label'
               >
                 From
@@ -73,13 +72,13 @@ export class WorkExperienceForm extends Component {
             <div className='my-2 form-floating col-md'>
               <input
                 type='date'
-                id={`company-to-${this.counter}`}
+                id={`company-to-${this.props.counter + 1}`}
                 className='form-control'
                 placeholder='To'
                 required
               />
               <label
-                htmlFor={`company-to-${this.counter}`}
+                htmlFor={`company-to-${this.props.counter + 1}`}
                 className='form-label'
               >
                 To
@@ -90,9 +89,9 @@ export class WorkExperienceForm extends Component {
                 <textarea
                   className='form-control'
                   placeholder='Describe your role'
-                  id={`company-role-${this.counter}`}
+                  id={`company-role-${this.props.counter + 1}`}
                 ></textarea>
-                <label htmlFor={`company-role-${this.counter}`}>
+                <label htmlFor={`company-role-${this.props.counter + 1}`}>
                   Describe your role
                 </label>
               </div>

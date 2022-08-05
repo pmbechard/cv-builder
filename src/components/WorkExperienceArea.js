@@ -2,17 +2,10 @@ import React, { Component } from 'react';
 import WorkExperienceForm from './WorkExperienceForm';
 
 export class WorkExperienceArea extends Component {
-  constructor(props) {
-    super(props);
-
-    this.counter = 3;
-    this.forms = [...Array(this.counter).keys()];
-  }
-
   render() {
     return (
       <div>
-        {this.forms.map((form) => (
+        {[...Array(this.props.formCount).keys()].map((form) => (
           <WorkExperienceForm
             counter={form}
             key={`work-experience-form-${form}`}
