@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function OtherForm() {
-  return <div>OtherForm</div>;
+export class OtherForm extends Component {
+  render() {
+    return <div>OtherForm</div>;
+  }
 }
 
 export default OtherForm;
