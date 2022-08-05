@@ -5,7 +5,7 @@ export class EducationArea extends Component {
   constructor(props) {
     super(props);
 
-    this.counter = 3;
+    this.counter = 2;
     this.forms = [...Array(this.counter).keys()];
   }
 

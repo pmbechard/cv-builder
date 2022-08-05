@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import PersonalInfoForm from './PersonalInfoForm';
 import WorkExperienceArea from './WorkExperienceArea';
 import EducationArea from './EducationArea';
-import OtherForm from './OtherForm';
+import OtherArea from './OtherArea';
 
 class Main extends Component {
   render() {
@@ -30,7 +30,7 @@ class Main extends Component {
         <Accordion.Item eventKey='3'>
           <Accordion.Header>Other</Accordion.Header>
           <Accordion.Body>
-            <OtherForm />
+            <OtherArea />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>

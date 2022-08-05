@@ -5,7 +5,7 @@ export class WorkExperienceArea extends Component {
   constructor(props) {
     super(props);
 
-    this.counter = 2;
+    this.counter = 3;
     this.forms = [...Array(this.counter).keys()];
   }
 
