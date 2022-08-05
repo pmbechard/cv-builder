@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import PersonalInfoForm from './PersonalInfoForm';
-import WorkExperienceForm from './WorkExperienceForm';
+import WorkExperienceArea from './WorkExperienceArea';
 import EducationForm from './EducationForm';
 import OtherForm from './OtherForm';
 
@@ -18,7 +18,7 @@ class Main extends Component {
         <Accordion.Item eventKey='1'>
           <Accordion.Header>Work Experience</Accordion.Header>
           <Accordion.Body>
-            <WorkExperienceForm />
+            <WorkExperienceArea />
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey='2'>
