@@ -5,15 +5,16 @@ export class EducationArea extends Component {
   constructor(props) {
     super(props);
 
-    this.counter = 0;
+    this.counter = 3;
+    this.forms = [...Array(this.counter).keys()];
   }
 
   render() {
     return (
       <div>
-        <EducationForm counter={this.counter++} />
-        <EducationForm counter={this.counter++} />
-        <EducationForm counter={this.counter++} />
+        {this.forms.map((form) => (
+          <EducationForm counter={form} key={`education-form-${form}`} />
+        ))}
       </div>
     );
   }
