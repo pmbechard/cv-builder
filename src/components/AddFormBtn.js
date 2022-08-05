@@ -5,7 +5,7 @@ export class AddFormBtn extends Component {
   render() {
     return (
       <div>
-        <Button onClick={this.props.addForm}>+</Button>
+        <Button onClick={this.props.addForm}>Add</Button>
       </div>
     );
   }

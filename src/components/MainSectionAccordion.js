@@ -5,6 +5,7 @@ import WorkExperienceArea from './WorkExperienceArea';
 import EducationArea from './EducationArea';
 import OtherArea from './OtherArea';
 import AddFormBtn from './AddFormBtn';
+import RemoveFormBtn from './RemoveFormBtn';
 
 class Main extends Component {
   constructor(props) {
@@ -23,15 +24,36 @@ class Main extends Component {
     });
   };
 
+  removeWorkForm = (e) => {
+    if (this.state.workCounter === 0) return;
+    this.setState({
+      workCounter: this.state.workCounter - 1,
+    });
+  };
+
   addEducationForm = (e) => {
     this.setState({
       educationCounter: this.state.educationCounter + 1,
     });
   };
 
+  removeEducationForm = (e) => {
+    if (this.state.educationCounter === 0) return;
+    this.setState({
+      educationCounter: this.state.educationCounter - 1,
+    });
+  };
+
   addOtherForm = (e) => {
     this.setState({
       otherCounter: this.state.otherCounter + 1,
+    });
+  };
+
+  removeOtherForm = (e) => {
+    if (this.state.otherCounter === 0) return;
+    this.setState({
+      otherCounter: this.state.otherCounter - 1,
     });
   };
 
@@ -49,11 +71,18 @@ class Main extends Component {
           <Accordion.Header>Work Experience</Accordion.Header>
           <Accordion.Body>
             <WorkExperienceArea formCount={this.state.workCounter} />
-            <AddFormBtn
-              addForm={(e) => {
-                this.addWorkForm(e);
-              }}
-            />
+            <div className='d-flex justify-content-evenly'>
+              <AddFormBtn
+                addForm={(e) => {
+                  this.addWorkForm(e);
+                }}
+              />
+              <RemoveFormBtn
+                removeForm={(e) => {
+                  this.removeWorkForm(e);
+                }}
+              />
+            </div>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -61,11 +90,18 @@ class Main extends Component {
           <Accordion.Header>Education</Accordion.Header>
           <Accordion.Body>
             <EducationArea formCount={this.state.educationCounter} />
-            <AddFormBtn
-              addForm={(e) => {
-                this.addEducationForm(e);
-              }}
-            />
+            <div className='d-flex justify-content-evenly'>
+              <AddFormBtn
+                addForm={(e) => {
+                  this.addEducationForm(e);
+                }}
+              />
+              <RemoveFormBtn
+                removeForm={(e) => {
+                  this.removeEducationForm(e);
+                }}
+              />
+            </div>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -73,11 +109,18 @@ class Main extends Component {
           <Accordion.Header>Other</Accordion.Header>
           <Accordion.Body>
             <OtherArea formCount={this.state.otherCounter} />
-            <AddFormBtn
-              addForm={(e) => {
-                this.addOtherForm(e);
-              }}
-            />
+            <div className='d-flex justify-content-evenly'>
+              <AddFormBtn
+                addForm={(e) => {
+                  this.addOtherForm(e);
+                }}
+              />
+              <RemoveFormBtn
+                removeForm={(e) => {
+                  this.removeOtherForm(e);
+                }}
+              />
+            </div>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
