@@ -77,11 +77,13 @@ function WorkExperienceForm({ counter }) {
           <div className='row gx-2'>
             <div className='my-2 form-floating col'>
               <textarea
-                class='form-control'
+                className='form-control'
                 placeholder='Describe your role'
                 id={`company-role-${counter}`}
               ></textarea>
-              <label for={`company-role-${counter}`}>Describe your role</label>
+              <label htmlFor={`company-role-${counter}`}>
+                Describe your role
+              </label>
             </div>
           </div>
         </div>
