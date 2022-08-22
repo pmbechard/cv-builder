@@ -1,4 +1,3 @@
-import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
