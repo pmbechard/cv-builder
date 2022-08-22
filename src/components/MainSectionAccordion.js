@@ -69,6 +69,7 @@ function Main(props) {
           const data = new FormData(e.target);
           setFormData(Object.fromEntries(data.entries()));
         }}
+        noValidate
       >
         <Accordion defaultActiveKey='0'>
           <Accordion.Item eventKey='0'>

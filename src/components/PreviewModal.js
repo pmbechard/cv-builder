@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import uniqid from 'uniqid';
 
 function PreviewModal(props) {
   return (
@@ -10,7 +11,7 @@ function PreviewModal(props) {
         </Modal.Header>
         <Modal.Body>
           {Object.values(props.doc).map((value) => {
-            return <div>{value}</div>;
+            return <div key={uniqid()}>{value}</div>;
           })}
         </Modal.Body>
         <Modal.Footer>
