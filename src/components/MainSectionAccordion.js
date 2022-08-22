@@ -8,7 +8,7 @@ import AddFormBtn from './AddFormBtn';
 import RemoveFormBtn from './RemoveFormBtn';
 import { Button } from 'react-bootstrap';
 import PreviewModal from './PreviewModal';
-// import { Preview, print } from 'react-html2pdf';
+import { print } from 'react-html2pdf';
 
 function Main(props) {
   const [workCounter, setWorkCounter] = useState(1);
@@ -51,11 +51,9 @@ function Main(props) {
     setShowModal(!showModal);
   };
 
-  const extractDocument = (e) => {
-    return 'Please come back soon to use this feature!';
+  const exportDocument = (e, doc) => {
+    print('cv', 'preview');
   };
-
-  const exportDocument = (e) => {};
 
   return (
     <div>
@@ -147,6 +145,7 @@ function Main(props) {
           show={showModal}
           toggleModal={showHidePreviewModal}
           doc={formData}
+          export={exportDocument}
         />
       </form>
     </div>
