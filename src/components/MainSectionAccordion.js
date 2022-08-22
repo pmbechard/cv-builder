@@ -15,6 +15,7 @@ function Main(props) {
   const [educationCounter, setEducationCounter] = useState(1);
   const [otherCounter, setOtherCounter] = useState(1);
   const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({});
 
   const addWorkForm = (e) => {
     if (workCounter === 3) return;
@@ -58,88 +59,95 @@ function Main(props) {
 
   return (
     <div>
-      <Accordion defaultActiveKey='0'>
-        <Accordion.Item eventKey='0'>
-          <Accordion.Header>Personal Information</Accordion.Header>
-          <Accordion.Body>
-            <PersonalInfoForm />
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey='1'>
-          <Accordion.Header>Work Experience</Accordion.Header>
-          <Accordion.Body>
-            <WorkExperienceArea formCount={workCounter} />
-            <div className='d-flex justify-content-evenly'>
-              <AddFormBtn
-                addForm={(e) => {
-                  addWorkForm(e);
-                }}
-              />
-              <RemoveFormBtn
-                removeForm={(e) => {
-                  removeWorkForm(e);
-                }}
-              />
-            </div>
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey='2'>
-          <Accordion.Header>Education</Accordion.Header>
-          <Accordion.Body>
-            <EducationArea formCount={educationCounter} />
-            <div className='d-flex justify-content-evenly'>
-              <AddFormBtn
-                addForm={(e) => {
-                  addEducationForm(e);
-                }}
-              />
-              <RemoveFormBtn
-                removeForm={(e) => {
-                  removeEducationForm(e);
-                }}
-              />
-            </div>
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey='3'>
-          <Accordion.Header>Other</Accordion.Header>
-          <Accordion.Body>
-            <OtherArea formCount={otherCounter} />
-            <div className='d-flex justify-content-evenly'>
-              <AddFormBtn
-                addForm={(e) => {
-                  addOtherForm(e);
-                }}
-              />
-              <RemoveFormBtn
-                removeForm={(e) => {
-                  removeOtherForm(e);
-                }}
-              />
-            </div>
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item>
-          <Accordion.Header>Save</Accordion.Header>
-          <Accordion.Body>
-            <div className='d-flex justify-content-evenly'>
-              <Button
-                className='btn-success'
-                onClick={(e) => {
-                  showHidePreviewModal(e);
-                }}
-              >
-                Preview Document
-              </Button>
-            </div>
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
-      <PreviewModal
-        show={showModal}
-        toggleModal={showHidePreviewModal}
-        doc={extractDocument}
-      />
+      <form
+        action=''
+        method=''
+        className='form'
+        onSubmit={(e) => {
+          e.preventDefault();
+          showHidePreviewModal(e);
+          const data = new FormData(e.target);
+          setFormData(Object.fromEntries(data.entries()));
+        }}
+      >
+        <Accordion defaultActiveKey='0'>
+          <Accordion.Item eventKey='0'>
+            <Accordion.Header>Personal Information</Accordion.Header>
+            <Accordion.Body>
+              <PersonalInfoForm />
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey='1'>
+            <Accordion.Header>Work Experience</Accordion.Header>
+            <Accordion.Body>
+              <WorkExperienceArea formCount={workCounter} />
+              <div className='d-flex justify-content-evenly'>
+                <AddFormBtn
+                  addForm={(e) => {
+                    addWorkForm(e);
+                  }}
+                />
+                <RemoveFormBtn
+                  removeForm={(e) => {
+                    removeWorkForm(e);
+                  }}
+                />
+              </div>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey='2'>
+            <Accordion.Header>Education</Accordion.Header>
+            <Accordion.Body>
+              <EducationArea formCount={educationCounter} />
+              <div className='d-flex justify-content-evenly'>
+                <AddFormBtn
+                  addForm={(e) => {
+                    addEducationForm(e);
+                  }}
+                />
+                <RemoveFormBtn
+                  removeForm={(e) => {
+                    removeEducationForm(e);
+                  }}
+                />
+              </div>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey='3'>
+            <Accordion.Header>Other</Accordion.Header>
+            <Accordion.Body>
+              <OtherArea formCount={otherCounter} />
+              <div className='d-flex justify-content-evenly'>
+                <AddFormBtn
+                  addForm={(e) => {
+                    addOtherForm(e);
+                  }}
+                />
+                <RemoveFormBtn
+                  removeForm={(e) => {
+                    removeOtherForm(e);
+                  }}
+                />
+              </div>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item>
+            <Accordion.Header>Save</Accordion.Header>
+            <Accordion.Body>
+              <div className='d-flex justify-content-evenly'>
+                <Button type='submit' className='btn-success'>
+                  Preview Document
+                </Button>
+              </div>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+        <PreviewModal
+          show={showModal}
+          toggleModal={showHidePreviewModal}
+          doc={formData}
+        />
+      </form>
     </div>
   );
 }

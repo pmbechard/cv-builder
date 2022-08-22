@@ -1,3 +1,4 @@
+import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
@@ -8,7 +9,11 @@ function PreviewModal(props) {
         <Modal.Header closeButton>
           <Modal.Title>Preview</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{props.doc()}</Modal.Body>
+        <Modal.Body>
+          {Object.values(props.doc).map((value) => {
+            return <div>{value}</div>;
+          })}
+        </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={props.toggleModal}>
             Close
