@@ -6,25 +6,55 @@ import uniqid from 'uniqid';
 // FIXME: Make modal responsive for mobile devices
 
 function PreviewModal(props) {
+  // TODO: Add conditional styling and parsing here for export formatting
+  const getFormattingClasses = (key) => {
+    if (key === 'name') return 'col-12 h4';
+    if (key === 'phone') return 'col-12';
+    if (key.split('-').length === 3 && key.split('-')[0] === 'position')
+      return 'col-12';
+    if (key.split('-').length === 3 && key.split('-')[1] === 'role')
+      return 'col-12 mb-3';
+    if (key.split('-').length === 2 && key.split('-')[0] === 'institution')
+      return 'col-12';
+    if (key.split('-')[0] === 'other') return 'col-12';
+    if (key.split('-')[0] === 'degree' || key.split('-')[2] === 'completed')
+      return 'col-6 mb-3';
+    return 'col-6';
+  };
+
   const formattedDocument = (
-    // TODO: Add styling and parsing here for export formatting
-    <div style={{ fontSize: '12px', padding: '20px' }} className='row'>
+    <div style={{ fontSize: '8px', padding: '20px' }} className='row'>
       {Object.entries(props.doc).map((value) => {
+        if (value[0].split('-')[1] === 'heading') {
+          return (
+            <div key={uniqid()} className={getFormattingClasses(value[0])}>
+              <div>
+                <hr />
+                <h6>{value[1]}</h6>
+                <br />
+              </div>
+            </div>
+          );
+        }
         return (
-          <div
-            key={uniqid()}
-            className={
-              value[0].split('-')[1] === 'completed' ? 'col-12' : 'col-6'
-            }
-          >
-            {value[0].split('-')[0] === 'position' && <hr />}
-            {value[0].split('-')[0] === 'company' &&
-              value[0].split('-').length === 2 && <hr />}
-            {value[0].split('-')[0] === 'institution' &&
-              value[0].split('-').length === 2 && <hr />}
-            {value[0].split('-')[0] === 'degree' && <hr />}
-            {value[0].split('-')[0] === 'other' && <hr />}
-            {value[0].toUpperCase()}: {value[1]}
+          <div key={uniqid()} className={getFormattingClasses(value[0])}>
+            {value[0] === 'position-company-1' && (
+              <div>
+                <hr />
+                <h6>Work Experience</h6>
+                <br />
+              </div>
+            )}
+            {value[0] === 'institution-0' && value[0].split('-').length === 2 && (
+              <div>
+                <hr className='my-3' />
+                <h6>Education</h6>
+                <br />
+              </div>
+            )}
+            {value[0].split('-')[1] === 'from' && 'From: '}
+            {value[0].split('-')[1] === 'to' && 'To: '}
+            {value[1]}
           </div>
         );
       })}
