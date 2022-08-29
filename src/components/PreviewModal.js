@@ -4,9 +4,9 @@ import { Preview } from 'react-html2pdf';
 import uniqid from 'uniqid';
 
 // FIXME: Make modal responsive for mobile devices
+// FIXME: Fix formatting in exported PDF
 
 function PreviewModal(props) {
-  // TODO: Add conditional styling and parsing here for export formatting
   const getFormattingClasses = (key) => {
     if (key === 'name') return 'col-12 h4';
     if (key === 'phone') return 'col-12';
